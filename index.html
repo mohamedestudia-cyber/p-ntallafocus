@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#07111c">
+  <meta name="description" content="Pantalla Focus: hábitos digitales, concentración y estudio inteligente.">
+  <title>Pantalla Focus</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <a class="brand" href="#" data-route="inicio" aria-label="Pantalla Focus, inicio">
+        <span class="brand-mark">PF<span>+</span></span>
+        <span><b>PANTALLA</b><small>FOCUS</small></span>
+      </a>
+      <div class="side-label">ESPACIO PERSONAL</div>
+      <nav class="nav-list" aria-label="Navegación principal">
+        <button class="nav-link active" data-route="inicio"><span>⌂</span> Inicio</button>
+        <button class="nav-link" data-route="diario"><span>▤</span> Mi diario</button>
+        <button class="nav-link" data-route="experimento"><span>◷</span> Experimento</button>
+        <button class="nav-link" data-route="evolucion"><span>⌁</span> Evolución</button>
+        <button class="nav-link" data-route="pruebas"><span>◎</span> Pruebas</button>
+        <button class="nav-link" data-route="juegos"><span>◇</span> Juegos 3D</button>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="ai-mini"><div class="ai-orb">✳</div><div><b>FocusIA</b><small>Tu tutor de estudio</small></div><button data-route="focusia" aria-label="Abrir FocusIA">↗</button></div>
+        <div class="local-note"><span class="status-dot"></span> Datos guardados en este dispositivo</div>
+        <button class="text-button" id="export-json">Exportar mis datos ↗</button>
+      </div>
+    </aside>
+
+    <main class="main-area">
+      <header class="topbar">
+        <button class="mobile-menu" id="mobile-menu" aria-label="Abrir menú">☰</button>
+        <div class="breadcrumb"><span>ESPACIO PERSONAL</span><b id="page-name">Inicio</b></div>
+        <div class="top-actions"><span class="live-pill"><i></i> ESPACIO ACTIVO</span><button class="icon-button" id="settings-button" aria-label="Preferencias">⚙</button></div>
+      </header>
+
+      <section class="page active" id="page-inicio">
+        <div class="hero">
+          <div class="hero-copy">
+            <div class="eyebrow"><span class="eyebrow-line"></span> TU CENTRO DE BIENESTAR DIGITAL</div>
+            <h1>Entrena tu atención.<br><em>Comprende tu mundo digital.</em></h1>
+            <p>Observa tus hábitos, explora tu concentración y aprende de forma inteligente. Un espacio para conocerte mejor, sin juicios ni fórmulas mágicas.</p>
+            <div class="hero-actions"><button class="btn btn-primary" data-route="pruebas">Comenzar mis pruebas <span>→</span></button><button class="btn btn-ghost" data-route="juegos">Explorar juegos 3D <span>↗</span></button></div>
+            <div class="hero-foot"><span class="tiny-check">✓</span> Tu progreso se guarda en este dispositivo</div>
+          </div>
+          <div class="hero-art" aria-label="Ilustración abstracta tecnológica">
+            <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><div class="orbit orbit-three"></div>
+            <div class="core"><div class="core-inner">PF</div></div>
+            <div class="float-tag tag-top"><span class="tag-dot"></span> FOCUS MODE <b>01</b></div>
+            <div class="float-tag tag-bottom"><span>✳</span> CONOCE TUS PATRONES</div>
+            <div class="art-grid"></div>
+          </div>
+        </div>
+        <div class="section-heading"><div><div class="eyebrow">VISTA GENERAL</div><h2>Tu espacio, de un vistazo</h2></div><span class="muted small" id="today-label"></span></div>
+        <div class="metric-grid">
+          <article class="metric-card"><div class="metric-top"><span>TIEMPO DE PANTALLAS</span><span class="metric-icon">▣</span></div><strong id="home-screen">—</strong><small id="home-screen-note">Añade tu primer registro</small><div class="metric-line"><i style="width:0%" id="screen-line"></i></div></article>
+          <article class="metric-card"><div class="metric-top"><span>SUEÑO REGISTRADO</span><span class="metric-icon blue">☾</span></div><strong id="home-sleep">—</strong><small>Último registro disponible</small><div class="metric-line blue-line"><i id="sleep-line" style="width:0%"></i></div></article>
+          <article class="metric-card"><div class="metric-top"><span>CONCENTRACIÓN</span><span class="metric-icon purple">◎</span></div><strong id="home-focus">—</strong><small>Percepción personal · escala 1–5</small><div class="metric-line purple-line"><i id="focus-line" style="width:0%"></i></div></article>
+          <article class="metric-card"><div class="metric-top"><span>EXPERIMENTO</span><span class="metric-icon orange">◷</span></div><strong id="home-days">0/7</strong><small>Días con registro</small><div class="metric-line orange-line"><i id="days-line" style="width:0%"></i></div></article>
+        </div>
+        <div class="home-lower">
+          <article class="panel quick-panel"><div class="panel-head"><div><div class="eyebrow">EMPIEZA POR AQUÍ</div><h3>Accesos rápidos</h3></div><span class="panel-symbol">↗</span></div>
+            <div class="quick-grid">
+              <button class="quick-action" data-route="diario"><span class="quick-icon green">＋</span><b>Añadir al diario</b><small>Registra cómo ha ido tu día</small><span class="quick-arrow">→</span></button>
+              <button class="quick-action" data-route="experimento"><span class="quick-icon cyan">◷</span><b>Ver experimento</b><small>Continúa la observación de 7 días</small><span class="quick-arrow">→</span></button>
+              <button class="quick-action" data-route="pruebas"><span class="quick-icon violet">◎</span><b>Hacer una prueba</b><small>Explora tareas cognitivas breves</small><span class="quick-arrow">→</span></button>
+              <button class="quick-action" data-route="focusia"><span class="quick-icon amber">✳</span><b>Preguntar a FocusIA</b><small>Resuelve dudas y estudia</small><span class="quick-arrow">→</span></button>
+            </div>
+          </article>
+          <article class="panel activity-panel"><div class="panel-head"><div><div class="eyebrow">TU RECORRIDO</div><h3>Actividad reciente</h3></div><button class="link-button" data-route="evolucion">Ver historial →</button></div><div id="recent-activity" class="activity-list"><div class="empty-state"><span>⌁</span><b>Tu actividad aparecerá aquí</b><small>Registra un día o completa una prueba para empezar.</small></div></div></article>
+        </div>
+        <footer class="footer-note">PANTALLA FOCUS <span>·</span> Una herramienta de autoobservación y aprendizaje. No es un instrumento de diagnóstico.</footer>
+      </section>
+
+      <section class="page" id="page-diario">
+        <div class="page-intro"><div class="eyebrow">OBSERVACIÓN PERSONAL</div><h1>Mi diario <em>digital</em></h1><p>Registra tus hábitos de pantalla, descanso y concentración. Los datos son manuales y privados en este navegador.</p></div>
+        <div class="two-col">
+          <form class="panel form-panel" id="diary-form">
+            <div class="panel-head"><div><div class="eyebrow">NUEVA ENTRADA</div><h3 id="diary-form-title">¿Cómo ha sido tu día?</h3></div><span class="form-date" id="form-date"></span></div>
+            <input type="hidden" id="edit-date">
+            <label class="field-label" for="diary-date">Fecha del registro</label><input class="input" type="date" id="diary-date" required>
+            <div class="form-section-title"><span>01</span> Uso de pantallas <small>Horas y minutos aproximados</small></div>
+            <div class="device-grid" id="device-fields"></div>
+            <div class="total-display"><span>TIEMPO TOTAL REGISTRADO</span><b id="diary-total">0 h 0 min</b></div>
+            <div class="form-section-title"><span>02</span> Sueño</div>
+            <div class="field-row"><div><label class="field-label" for="sleep-hours">Horas dormidas</label><input class="input" type="number" id="sleep-hours" min="0" max="24" step=".25" placeholder="Ej. 8"></div><div><label class="field-label" for="sleep-quality">Calidad percibida (1–5)</label><select class="input" id="sleep-quality"><option value="">Sin indicar</option><option value="1">1 · Muy baja</option><option value="2">2 · Baja</option><option value="3">3 · Media</option><option value="4">4 · Buena</option><option value="5">5 · Muy buena</option></select></div></div>
+            <label class="field-label" for="sleep-comment">Comentario sobre el sueño <span class="optional">Opcional</span></label><input class="input" id="sleep-comment" maxlength="240" placeholder="¿Te has despertado descansado?">
+            <div class="form-section-title"><span>03</span> Atención y bienestar</div>
+            <div class="field-row"><div><label class="field-label" for="concentration">Concentración percibida (1–5)</label><select class="input" id="concentration"><option value="">Sin indicar</option><option value="1">1 · Muy baja</option><option value="2">2 · Baja</option><option value="3">3 · Media</option><option value="4">4 · Alta</option><option value="5">5 · Muy alta</option></select></div><div><label class="field-label" for="difficulty">Dificultad para concentrarse (1–5)</label><select class="input" id="difficulty"><option value="">Sin indicar</option><option value="1">1 · Ninguna</option><option value="2">2 · Leve</option><option value="3">3 · Moderada</option><option value="4">4 · Alta</option><option value="5">5 · Muy alta</option></select></div></div>
+            <div class="field-row"><div><label class="field-label" for="fatigue">Cansancio mental (1–5)</label><select class="input" id="fatigue"><option value="">Sin indicar</option><option value="1">1 · Ninguno</option><option value="2">2 · Leve</option><option value="3">3 · Moderado</option><option value="4">4 · Alto</option><option value="5">5 · Muy alto</option></select></div><div><label class="field-label" for="mood">Estado de ánimo</label><select class="input" id="mood"><option value="">Sin indicar</option><option>Muy bien</option><option>Bien</option><option>Normal</option><option>Regular</option><option>Mal</option></select></div></div>
+            <div class="field-row"><div><label class="field-label" for="exercise">Actividad física <span class="optional">Minutos</span></label><input class="input" type="number" id="exercise" min="0" max="1440" placeholder="Ej. 30"></div><div><label class="field-label" for="circumstances">Circunstancias <span class="optional">Opcional</span></label><input class="input" id="circumstances" maxlength="160" placeholder="Exámenes, viaje..."></div></div>
+            <label class="field-label" for="observations">Observaciones personales <span class="optional">Opcional</span></label><textarea class="input textarea" id="observations" maxlength="1000" placeholder="Anota algo que quieras recordar..."></textarea>
+            <div class="form-actions"><button type="button" class="btn btn-ghost" id="reset-diary">Limpiar</button><button class="btn btn-primary" type="submit" id="save-diary">Guardar registro <span>→</span></button></div>
+            <p class="form-feedback" id="diary-feedback" role="status"></p>
+          </form>
+          <div class="stack-col"><article class="panel"><div class="panel-head"><div><div class="eyebrow">HISTORIAL</div><h3>Registros anteriores</h3></div><span class="count-pill" id="diary-count">0</span></div><div id="diary-history" class="history-list"><div class="empty-state"><span>▤</span><b>Aún no hay registros</b><small>Tu primer registro aparecerá aquí.</small></div></div></article>
+          <article class="info-card"><span class="info-icon">ⓘ</span><div><b>Una observación, no un juicio</b><p>Las escalas reflejan tu percepción personal. No miden capacidades clínicas ni establecen relaciones de causa y efecto.</p></div></article></div>
+        </div>
+      </section>
+
+      <section class="page" id="page-experimento">
+        <div class="page-intro"><div class="eyebrow">OBSERVACIÓN DE 7 DÍAS</div><h1>Experimento <em>personal</em></h1><p>Observa cómo varían tus hábitos durante una semana. No necesitas cambiar nada para empezar: registra y compara.</p></div>
+        <div class="experiment-hero panel"><div><div class="eyebrow">TU PROGRESO</div><div class="experiment-number"><strong id="experiment-count">0</strong><span>/ 7 días</span></div><p id="experiment-message">Cada registro diario cuenta como una observación.</p></div><div class="progress-ring" id="progress-ring"><div><b id="ring-percent">0%</b><small>COMPLETADO</small></div></div></div>
+        <div class="section-heading"><div><div class="eyebrow">SEGUIMIENTO</div><h2>Tu semana de observación</h2></div><span class="muted small">Se cuentan días únicos con diario</span></div>
+        <div class="week-grid" id="week-grid"></div>
+        <div class="two-col experiment-lower"><article class="panel"><div class="panel-head"><div><div class="eyebrow">RESUMEN</div><h3>Lo que muestran tus datos</h3></div></div><div id="experiment-summary" class="summary-stats"><div class="empty-state"><span>⌁</span><b>Necesitamos más observaciones</b><small>Registra tus días para calcular medias reales. Los días sin datos no se rellenan.</small></div></div></article><article class="panel"><div class="panel-head"><div><div class="eyebrow">REFLEXIÓN</div><h3>Observaciones de la semana</h3></div></div><div id="experiment-observations" class="observation-list"><p class="muted">Las observaciones que escribas en el diario aparecerán aquí.</p></div></article></div>
+        <p class="disclaimer">Este seguimiento personal es descriptivo. Siete días de datos no permiten demostrar causalidad ni generalizar resultados.</p>
+      </section>
+
+      <section class="page" id="page-evolucion">
+        <div class="page-intro"><div class="eyebrow">DATOS Y PATRONES</div><h1>Tu <em>evolución</em></h1><p>Consulta las tendencias de tus registros y el historial de actividades. Solo se representan datos que has guardado.</p></div>
+        <div class="chart-grid"><article class="panel chart-panel"><div class="panel-head"><div><div class="eyebrow">DIARIO</div><h3>Tiempo de pantallas</h3></div><span class="chart-unit">HORAS</span></div><canvas id="chart-screens" height="190"></canvas><div class="chart-foot" id="screen-chart-note">Aún no hay datos suficientes.</div></article><article class="panel chart-panel"><div class="panel-head"><div><div class="eyebrow">DESCANSO</div><h3>Horas de sueño</h3></div><span class="chart-unit">HORAS</span></div><canvas id="chart-sleep" height="190"></canvas><div class="chart-foot" id="sleep-chart-note">Aún no hay datos suficientes.</div></article><article class="panel chart-panel"><div class="panel-head"><div><div class="eyebrow">ATENCIÓN</div><h3>Concentración percibida</h3></div><span class="chart-unit">ESCALA 1–5</span></div><canvas id="chart-focus" height="190"></canvas><div class="chart-foot" id="focus-chart-note">Aún no hay datos suficientes.</div></article><article class="panel chart-panel"><div class="panel-head"><div><div class="eyebrow">COMPARACIÓN</div><h3>Sueño y concentración</h3></div><span class="chart-unit">DOS VARIABLES</span></div><canvas id="chart-compare" height="190"></canvas><div class="chart-foot">Comparación visual; no implica relación causal.</div></article></div>
+        <div class="panel history-panel"><div class="panel-head"><div><div class="eyebrow">REGISTRO DE ACTIVIDAD</div><h3>Historial de resultados</h3></div><div class="export-actions"><button class="btn btn-small btn-ghost" id="export-csv">Exportar CSV</button><button class="btn btn-small btn-ghost" id="export-all">Exportar JSON</button></div></div><div id="all-history" class="table-wrap"></div></div>
+      </section>
+
+      <section class="page" id="page-pruebas">
+        <div class="page-intro"><div class="eyebrow">ENTRENAMIENTO COGNITIVO</div><h1>Pruebas <em>tradicionales</em></h1><p>Cuatro tareas breves de atención y memoria. Son ejercicios orientativos, no pruebas clínicas ni diagnósticos.</p></div>
+        <div class="test-layout"><div class="test-selector" id="test-selector">
+          <button class="test-choice active" data-test="attention"><span class="test-number">01</span><span><b>Atención</b><small>Detecta la letra objetivo entre distractores</small></span><span>→</span></button>
+          <button class="test-choice" data-test="numbers"><span class="test-number">02</span><span><b>Memoria numérica</b><small>Recuerda una secuencia de números</small></span><span>→</span></button>
+          <button class="test-choice" data-test="words"><span class="test-number">03</span><span><b>Memoria de palabras</b><small>Recuerda ocho palabras diferentes</small></span><span>→</span></button>
+          <button class="test-choice" data-test="visual"><span class="test-number">04</span><span><b>Secuencia visual</b><small>Reproduce el orden de las casillas</small></span><span>→</span></button>
+          <div class="test-history-mini"><b>Últimos resultados</b><div id="test-mini-history" class="mini-history">Todavía no hay resultados.</div></div>
+        </div><div class="panel test-stage" id="test-stage"><div class="test-welcome"><div class="test-big-icon">◎</div><div class="eyebrow">ELIGE UNA ACTIVIDAD</div><h2>Entrena tu atención</h2><p>Selecciona una de las cuatro pruebas. Lee las instrucciones y realiza la actividad a tu ritmo.</p><button class="btn btn-primary" id="start-selected-test">Comenzar atención <span>→</span></button></div></div></div>
+        <p class="disclaimer">El rendimiento puede variar por la práctica, el cansancio, el entorno y el dispositivo. Los resultados no son diagnósticos médicos ni evaluaciones clínicas validadas.</p>
+      </section>
+
+      <section class="page" id="page-juegos">
+        <div class="page-intro"><div class="eyebrow">ENTORNO INTERACTIVO</div><h1>Juegos <em>3D</em></h1><p>Explora un espacio tridimensional original, interactúa con objetivos virtuales y practica diferentes retos de memoria y atención.</p></div>
+        <div id="game-menu" class="game-menu panel"><div class="game-menu-art"><div class="game-cube"></div><div class="game-orbit"></div><div class="game-menu-label">NEON TRAINING ENVIRONMENT <span>● ONLINE LOCAL</span></div></div><div class="game-menu-content"><div class="eyebrow">SIMULACIÓN INTERACTIVA</div><h2>Entra en la arena <em>Neon Lab</em></h2><p>Muévete por un escenario 3D, localiza los objetivos y completa desafíos. El juego se ejecuta en tu navegador.</p><div class="mode-grid"><button class="mode-card selected" data-mode="free"><b>01</b><strong>Desafío libre</strong><small>Explora y alcanza objetivos</small></button><button class="mode-card" data-mode="attention"><b>02</b><strong>Atención</strong><small>Localiza objetivos específicos</small></button><button class="mode-card" data-mode="sequence"><b>03</b><strong>Secuencia visual</strong><small>Recuerda el orden de paneles</small></button></div><div class="game-menu-actions"><label class="field-label">Dificultad <select class="input" id="game-difficulty"><option value="1">Exploración</option><option value="2">Estándar</option><option value="3">Desafío</option></select></label><button class="btn btn-primary" id="launch-game">Entrar en Neon Lab <span>→</span></button></div><p class="small muted">PC: WASD + ratón, espacio para saltar, clic para energía. Móvil: joystick, arrastre de cámara y botones táctiles.</p></div></div>
+        <div id="game-container" class="game-container hidden"><div class="game-hud"><div><span class="hud-label">PUNTUACIÓN</span><b id="game-score">0</b></div><div><span class="hud-label">OBJETIVO</span><b id="game-objective">Explora el escenario</b></div><button class="btn btn-small btn-ghost" id="pause-game">Ⅱ Pausar</button><button class="btn btn-small btn-ghost" id="exit-game">Salir ✕</button></div><div id="game-canvas-wrap"><div class="crosshair">＋</div><div class="mobile-game-controls"><div class="joystick" id="joystick"><div class="joy-knob" id="joy-knob"></div></div><div class="touch-look" id="touch-look"></div><div class="touch-actions"><button id="touch-jump">↑</button><button id="touch-fire">✦</button><button id="touch-interact">E</button></div></div><div class="game-toast" id="game-toast"></div><div class="pause-overlay hidden" id="pause-overlay"><div><div class="eyebrow">SESIÓN EN PAUSA</div><h2>Respira. Cuando quieras, continúa.</h2><button class="btn btn-primary" id="resume-game">Reanudar</button></div></div></div><div class="game-bottom"><span id="game-hint">WASD moverse · ratón mirar · clic disparar · E interactuar · Esc salir del puntero</span><span id="game-status">Cargando motor bajo demanda</span></div></div>
+        <div class="panel game-records"><div class="panel-head"><div><div class="eyebrow">PROGRESO</div><h3>Récords de Neon Lab</h3></div></div><div id="game-history" class="history-list"><div class="empty-state"><span>◇</span><b>Aún no hay partidas</b><small>Completa una sesión para guardar tus resultados.</small></div></div></div>
+      </section>
+
+      <section class="page" id="page-focusia">
+        <div class="page-intro"><div class="eyebrow">TUTOR DE ESTUDIO</div><h1>Hola, soy <em>FocusIA</em></h1><p>Tu espacio para comprender conceptos, resolver ejercicios y organizar el estudio. La conexión real requiere configurar el backend.</p></div>
+        <div class="ai-layout"><div class="panel chat-panel"><div class="chat-top"><div class="ai-avatar">✳</div><div><b>FocusIA <span class="online-dot"></span></b><small id="ai-connection">Comprobando conexión…</small></div><button class="link-button" id="new-chat">＋ Nueva conversación</button></div><div class="chat-messages" id="chat-messages"><div class="assistant-message"><div class="message-avatar">✳</div><div class="message-bubble"><b>¡Hola! Soy FocusIA.</b><p>Puedo ayudarte a entender temas, resolver ejercicios paso a paso, resumir apuntes y preparar preguntas de práctica. ¿Qué estás estudiando?</p><small>Asistente de estudio · Verifica los resultados importantes</small></div></div></div><div id="attachment-preview" class="attachment-preview hidden"></div><form id="chat-form" class="chat-composer"><div class="composer-tools"><label class="attach-button" title="Adjuntar imagen">＋<input type="file" id="image-upload" accept="image/jpeg,image/png,image/webp" hidden></label><span>JPG, PNG o WEBP · Máx. 5 MB</span><select id="ai-language" aria-label="Idioma"><option value="es">ES</option><option value="ca">CA</option><option value="en">EN</option></select></div><textarea id="chat-input" rows="2" maxlength="6000" placeholder="Escribe tu pregunta… (Enter para enviar, Shift + Enter para nueva línea)"></textarea><div class="composer-bottom"><span id="chat-error" role="status"></span><button class="btn btn-primary" id="send-chat" type="submit">Enviar <span>↑</span></button></div></form></div>
+          <aside class="ai-tools"><article class="panel tool-panel"><div class="eyebrow">HERRAMIENTAS DE ESTUDIO</div><h3>Atajos inteligentes</h3><p>Escribe o adjunta tus apuntes y elige qué necesitas.</p><button class="tool-action" data-prompt="Resume estos apuntes con las ideas principales y los conceptos clave.">▤ <span><b>Crear un resumen</b><small>Ideas principales y conceptos clave</small></span>→</button><button class="tool-action" data-prompt="Convierte este contenido en un esquema jerárquico claro.">⌘ <span><b>Hacer un esquema</b><small>Organiza la información</small></span>→</button><button class="tool-action" data-prompt="Crea 8 preguntas de práctica de dificultad progresiva sobre este contenido, y espera mis respuestas para corregirlas.">◎ <span><b>Practicar preguntas</b><small>Comprueba lo que has aprendido</small></span>→</button><button class="tool-action" data-prompt="Explícame este contenido paso a paso con un ejemplo sencillo.">✳ <span><b>Explícamelo fácil</b><small>Una explicación paso a paso</small></span>→</button></article>
+          <article class="panel flashcard-panel"><div class="eyebrow">MEMORIZACIÓN ACTIVA</div><h3>Tarjetas de estudio</h3><p>Crea tarjetas de pregunta y respuesta que se guardan en este dispositivo.</p><button class="btn btn-ghost btn-block" id="open-flashcards">Abrir mis tarjetas →</button><div class="flashcard-count"><b id="flashcard-count">0</b><span>tarjetas guardadas</span></div></article></aside></div>
+        <p class="disclaimer">Las conversaciones se envían al backend que configures. No introduzcas datos personales sensibles. La API puede generar costes independientes.</p>
+      </section>
+
+      <footer class="mobile-footer">PANTALLA FOCUS · DATOS LOCALES EN ESTE DISPOSITIVO</footer>
+    </main>
+  </div>
+
+  <div class="modal-backdrop hidden" id="modal-backdrop"><div class="modal panel" role="dialog" aria-modal="true" aria-labelledby="modal-title"><div class="panel-head"><div><div class="eyebrow">PANTALLA FOCUS</div><h3 id="modal-title">Preferencias</h3></div><button class="icon-button" id="close-modal" aria-label="Cerrar">✕</button></div><div id="modal-content"></div></div></div>
+  <div class="toast-region" id="toast-region" aria-live="polite"></div>
+  <script src="app.js"></script>
+</body>
+</html>
